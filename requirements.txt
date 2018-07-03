@@ -10,7 +10,6 @@ cymem==1.31.2
 cytoolz==0.8.2
 decorator==4.1.2
 dill==0.2.7.1
-en-core-web-sm==1.2.0
 entrypoints==0.2.3
 ftfy==4.4.3
 gensim==2.3.0
@@ -18,7 +17,6 @@ h5py==2.7.0
 html5lib==0.9999999
 idna==2.5
 ipykernel==4.6.1
-ipython==6.1.0
 ipython-genutils==0.2.0
 ipywidgets==6.0.0
 jedi==0.10.2
@@ -76,8 +74,6 @@ testpath==0.3.1
 Theano==0.9.0
 thinc==6.5.2
 toolz==0.8.2
-torch==0.2.0.post1
-torchvision==0.1.9
 tornado==4.5.1
 tqdm==4.15.0
 traitlets==4.3.2
