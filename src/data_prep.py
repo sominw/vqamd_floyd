@@ -3,7 +3,7 @@ import spacy  #tokenizing text
 import progressbar
 from utils import most_freq_answer
 
-nlp = spacy.load("en")
+nlp = spacy.load("en_core_web_md")
 
 data = 'training_data'
 #Create all relevant data-dumps required
