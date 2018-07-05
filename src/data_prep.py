@@ -7,13 +7,13 @@ nlp = spacy.load("en_core_web_md")
 
 data = 'training_data'
 #Create all relevant data-dumps required
-image_set_id = open('../preprocessed/v2/val_images_coco_id.txt','wb')
-ann = '../data/v2/v2_mscoco_val2014_annotations.json'
-ques = '../data/v2/v2_OpenEnded_mscoco_val2014_questions.json'
-ques_compile = open('../preprocessed/v2/ques_val.txt', 'wb')
-ques_id = open('../preprocessed/v2/ques_val_id.txt', 'wb')
-ques_len = open('../preprocessed/v2/ques_val_len.txt', 'wb')
-answer_train = open('../preprocessed/v2/answer_val.txt','wb')
+image_set_id = open('../preprocessed/v1/val_images_coco_id.txt','wb')
+ann = '../data/v1/mscoco_val2014_annotations.json'
+ques = '../data/v1/OpenEnded_mscoco_val2014_questions.json'
+ques_compile = open('../preprocessed/v1/ques_val.txt', 'wb')
+ques_id = open('../preprocessed/v1/ques_val_id.txt', 'wb')
+ques_len = open('../preprocessed/v1/ques_val_len.txt', 'wb')
+answer_train = open('../preprocessed/v1/answer_val.txt','wb')
 
 ques = json.load(open(ques,'r'))
 questions = ques['questions']
