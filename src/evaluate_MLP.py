@@ -63,7 +63,7 @@ def main():
 
     correct_val = 0.0
     total = 0
-    f1 = open('res.txt','wb')
+    f1 = open('res.txt','w')
 
     for pred, truth, ques, img in zip(y_pred, val_ans, val_ques, val_imgs):
         t_count = 0
@@ -77,19 +77,23 @@ def main():
 
         total +=1
 
-        f1.write(ques.encode('utf-8'))
-        f1.write('\n')
-        f1.write(img.encode('utf-8'))
-        f1.write('\n')
-        f1.write(pred)
-        f1.write('\n')
-        f1.write(truth.encode('utf-8'))
-        f1.write('\n')
-        f1.write('\n')
+        try:
+            f1.write(str(ques))
+            f1.write('\n')
+            f1.write(str(img))
+            f1.write('\n')
+            f1.write(str(pred))
+            f1.write('\n')
+            f1.write(str(truth))
+            f1.write('\n')
+            f1.write('\n')
+        except:
+            pass
 
+    print ("Accuracy: ", correct_val/total)
     f1.write('Final Accuracy is ' + str(correct_val/total))
     f1.close()
-    print ("Accuracy: ", correct_val/total)
+    
 
 
 
