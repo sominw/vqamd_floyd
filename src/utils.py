@@ -3,6 +3,8 @@ from collections import defaultdict
 from itertools import zip_longest
 import numpy as np
 from keras.utils import np_utils
+import warnings
+warnings.filterwarnings('ignore')
 
 def freq_answers(training_questions, answer_train, images_train, upper_lim):
 

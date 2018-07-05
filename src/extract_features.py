@@ -1,6 +1,7 @@
 import numpy as np
 from keras.utils import np_utils
-
+import warnings
+warnings.filterwarnings('ignore')
 
 def get_questions_tensor_timeseries(questions, nlp, timesteps):
 	'''
@@ -12,13 +13,13 @@ def get_questions_tensor_timeseries(questions, nlp, timesteps):
 	Output:
 	A numpy ndarray of shape: (nb_samples, timesteps, word_vec_dim)
 	'''
-	assert not isinstance(questions, basestring)
+	assert not isinstance(questions, str)
 	nb_samples = len(questions)
 	word_vec_dim = nlp(questions[0])[0].vector.shape[0]
 	questions_tensor = np.zeros((nb_samples, timesteps, word_vec_dim))
-	for i in xrange(len(questions)):
+	for i in range(len(questions)):
 		tokens = nlp(questions[i])
-		for j in xrange(len(tokens)):
+		for j in range(len(tokens)):
 			if j<timesteps:
 				questions_tensor[i,j,:] = tokens[j].vector
 
@@ -34,13 +35,13 @@ def get_questions_matrix_sum(questions, nlp):
 	Output:
 	A numpy array of shape: (nb_samples, word_vec_dim)	
 	'''
-	assert not isinstance(questions, basestring)
+	assert not isinstance(questions, str)
 	nb_samples = len(questions)
 	word_vec_dim = nlp(questions[0])[0].vector.shape[0]
 	questions_matrix = np.zeros((nb_samples, word_vec_dim))
-	for i in xrange(len(questions)):
+	for i in range(len(questions)):
 		tokens = nlp(questions[i])
-		for j in xrange(len(tokens)):
+		for j in range(len(tokens)):
 			questions_matrix[i,:] += tokens[j].vector
 
 	return questions_matrix
@@ -54,7 +55,7 @@ def get_answers_matrix(answers, encoder):
 	Output:
 	A numpy array of shape (nb_samples, nb_classes)
 	'''
-	assert not isinstance(answers, basestring)
+	assert not isinstance(answers, str)
 	y = encoder.transform(answers) #string to numerical class
 	nb_classes = encoder.classes_.shape[0]
 	Y = np_utils.to_categorical(y, nb_classes)
@@ -74,11 +75,11 @@ def get_images_matrix(img_coco_ids, img_map, VGGfeatures):
 	Ouput:
 	A numpy matrix of size (nb_samples, nb_dimensions)
 	'''
-	assert not isinstance(img_coco_ids, basestring)
+	assert not isinstance(img_coco_ids, str)
 	nb_samples = len(img_coco_ids)
 	nb_dimensions = VGGfeatures.shape[0]
 	image_matrix = np.zeros((nb_samples, nb_dimensions))
-	for j in xrange(len(img_coco_ids)):
+	for j in range(len(img_coco_ids)):
 		image_matrix[j,:] = VGGfeatures[:,img_map[img_coco_ids[j]]]
 
 	return image_matrix
