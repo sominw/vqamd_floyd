@@ -22,7 +22,6 @@ def get_questions_tensor_timeseries(questions, nlp, timesteps):
 		for j in range(len(tokens)):
 			if j<timesteps:
 				questions_tensor[i,j,:] = tokens[j].vector
-
 	return questions_tensor
 
 def get_questions_matrix_sum(questions, nlp):
