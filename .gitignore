@@ -5,3 +5,6 @@ data
 .DS_Store
 .ipynb_checkpoints/
 weights
+get_started_workspace.ipynb
+.floydexpt
+
