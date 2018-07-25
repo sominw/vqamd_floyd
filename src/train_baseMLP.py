@@ -9,7 +9,8 @@ import scipy.io
 from keras.optimizers import SGD
 from keras.utils import np_utils, generic_utils
 from sklearn.preprocessing import LabelEncoder
-from spacy.en import English
+import spacy
+#from spacy.en import English
 from utils import freq_answers, grouped, get_questions_sum, get_images_matrix, get_answers_sum
 
 def main():
@@ -18,12 +19,12 @@ def main():
     answers_train = open("/code/preprocessed/v1/answer_train.txt","rb").read().decode('utf8').splitlines()
     images_train = open("/code/preprocessed/v1/images_coco_id.txt","rb").read().decode('utf8').splitlines()
     img_ids = open('/code/preprocessed/v1/coco_vgg_IDMap.txt').read().splitlines()
-    vgg_path = "/input/vqa_data/coco/vgg_feats.mat"
+    vgg_path = "/input/coco/vgg_feats.mat"
 
     vgg_features = scipy.io.loadmat(vgg_path)
     img_features = vgg_features['feats']
     id_map = dict()
-    nlp = English()
+    nlp = spacy.load("en_core_web_md")
     print ("Loaded WordVec")
     lbl = LabelEncoder()
     lbl.fit(answers_train)
@@ -59,7 +60,7 @@ def main():
     model.add(Activation('softmax'))
 
     model.compile(loss='categorical_crossentropy', optimizer='rmsprop')
-    tensorboard = TensorBoard(log_dir='/output/Graph', histogram_freq=0, write_graph=True, write_images=True)
+    #tensorboard = TensorBoard(log_dir='/output/Graph', histogram_freq=0, write_graph=True, write_images=True)
 
     for k in range(num_epochs):
         index_shuffle = list(range(len(training_questions)))
@@ -73,7 +74,7 @@ def main():
             X_img_batch = get_images_matrix(im_batch, id_map, img_features)
             X_batch = np.hstack((X_ques_batch, X_img_batch))
             Y_batch = get_answers_sum(ans_batch, lbl)
-            loss = model.train_on_batch(X_batch, Y_batch,callbacks= [tensorboard])
+            loss = model.train_on_batch(X_batch, Y_batch)
             progbar.add(batch_size, values=[('train loss', loss)])
 
         if k%log_interval == 0:
