@@ -11,7 +11,7 @@ from keras.utils import np_utils, generic_utils
 from sklearn.preprocessing import LabelEncoder
 import spacy
 #from spacy.en import English
-from utils import freq_answers, grouped, get_questions_sum, get_images_matrix, get_answers_sum
+from utils import *
 
 def main():
 
@@ -32,12 +32,12 @@ def main():
     pk.dump(lbl, open('/code/preprocessed/v1/label_encoder.sav','wb'))
 
     print (vgg_path)
-    upper_lim = 1500 #Number of most frequently occurring answers in COCOVQA (85%+)
+    upper_lim = 1000 #Number of most frequently occurring answers in COCOVQA (85%+)
     training_questions, answers_train, images_train = freq_answers(training_questions, answers_train, images_train, upper_lim)
     print (len(training_questions), len(answers_train),len(images_train))
     num_hidden_units = 1024
     num_hidden_layers = 3
-    batch_size = 128
+    batch_size = 256
     dropout = 0.5
     activation = 'tanh'
     img_dim = 4096

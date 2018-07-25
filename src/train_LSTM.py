@@ -19,17 +19,17 @@ from keras.models import model_from_json
 from sklearn.preprocessing import LabelEncoder
 import spacy
 #from spacy.en import English
-from src.extract_features import get_questions_matrix_sum, get_images_matrix, get_answers_matrix, get_questions_tensor_timeseries
-from src.utils import freq_answers, grouped, get_questions_sum, get_images_matrix, get_answers_sum
+from features import *
+from utils import *
 
-training_questions = open("preprocessed/v2/ques_train.txt","rb").read().decode('utf8').splitlines()
-training_questions_len = open("preprocessed/v2/ques_train_len.txt","rb").read().decode('utf8').splitlines()
-answers_train = open("preprocessed/v2/answer_train.txt","rb").read().decode('utf8').splitlines()
-images_train = open("preprocessed/v2/images_coco_id.txt","rb").read().decode('utf8').splitlines()
-img_ids = open('preprocessed/v2/coco_vgg_IDMap.txt').read().splitlines()
-vgg_path = "data/coco/vgg_feats.mat"
+training_questions = open("preprocessed/v1/ques_train.txt","rb").read().decode('utf8').splitlines()
+training_questions_len = open("preprocessed/v1/ques_train_len.txt","rb").read().decode('utf8').splitlines()
+answers_train = open("preprocessed/v1/answer_train.txt","rb").read().decode('utf8').splitlines()
+images_train = open("preprocessed/v1/images_coco_id.txt","rb").read().decode('utf8').splitlines()
+img_ids = open('preprocessed/v1/coco_vgg_IDMap.txt').read().splitlines()
+vgg_path = "/input/coco/vgg_feats.mat"
 
-nlp = spacy.load("en_core_web_md")
+nlp = spacy.load("en")
 print ("Loaded WordVec")
 
 vgg_features = scipy.io.loadmat(vgg_path)
@@ -48,9 +48,9 @@ training_questions_len, training_questions, answers_train, images_train = (list(
 lbl = LabelEncoder()
 lbl.fit(answers_train)
 nb_classes = len(list(lbl.classes_))
-pk.dump(lbl, open('preprocessed/v2/label_encoder_lstm.sav','wb'))
+pk.dump(lbl, open('/output/label_encoder_lstm.sav','wb'))
 
-batch_size               =      128
+batch_size               =      256
 img_dim                  =     4096
 word2vec_dim             =      300
 #max_len                 =       30 # Required only when using Fixed-Length Padding
@@ -61,8 +61,9 @@ num_layers_mlp           =        3
 num_layers_lstm          =        3
 dropout                  =       0.5
 activation_mlp           =     'tanh'
-num_epochs               =         1 
-log_interval             =         1 
+
+num_epochs               =         90 
+log_interval             =         15 
 
 for ids in img_ids:
     id_split = ids.split()
@@ -89,7 +90,7 @@ model.add(Dense(upper_lim))
 model.add(Activation("softmax"))
 
 model_dump = model.to_json()
-open('lstm_structure'  + '.json', 'w').write(model_dump)
+open('/output/lstm_structure'  + '.json', 'w').write(model_dump)
 
 model.compile(loss='categorical_crossentropy', optimizer='rmsprop')
 
@@ -108,7 +109,7 @@ for k in range(num_epochs):
         loss = model.train_on_batch([X_ques_batch, X_img_batch], Y_batch)
         progbar.add(batch_size, values=[('train loss', loss)])
     if k%log_interval == 0:
-        model.save_weights("weights/LSTM" + "_epoch_{:02d}.hdf5".format(k))
-model.save_weights("weights/MLP" + "_epoch_{:02d}.hdf5".format(k))
+        model.save_weights("/output/LSTM" + "_epoch_{:02d}.hdf5".format(k))
+model.save_weights("/output/MLP" + "_epoch_{:02d}.hdf5".format(k))
 
 
