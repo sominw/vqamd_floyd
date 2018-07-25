@@ -14,11 +14,11 @@ from utils import freq_answers, grouped, get_questions_sum, get_images_matrix, g
 
 def main():
 
-    training_questions = open("/code/preprocessed/ques_train.txt","rb").read().decode('utf8').splitlines()
-    answers_train = open("/code/preprocessed/answer_train.txt","rb").read().decode('utf8').splitlines()
-    images_train = open("/code/preprocessed/images_coco_id.txt","rb").read().decode('utf8').splitlines()
-    img_ids = open('/code/preprocessed/coco_vgg_IDMap.txt').read().splitlines()
-    vgg_path = "/input/vgg_feats.mat"
+    training_questions = open("/code/preprocessed/v1/ques_train.txt","rb").read().decode('utf8').splitlines()
+    answers_train = open("/code/preprocessed/v1/answer_train.txt","rb").read().decode('utf8').splitlines()
+    images_train = open("/code/preprocessed/v1/images_coco_id.txt","rb").read().decode('utf8').splitlines()
+    img_ids = open('/code/preprocessed/v1/coco_vgg_IDMap.txt').read().splitlines()
+    vgg_path = "/input/vqa_data/coco/vgg_feats.mat"
 
     vgg_features = scipy.io.loadmat(vgg_path)
     img_features = vgg_features['feats']
@@ -28,7 +28,7 @@ def main():
     lbl = LabelEncoder()
     lbl.fit(answers_train)
     nb_classes = len(list(lbl.classes_))
-    pk.dump(lbl, open('/code/preprocessed/label_encoder.sav','wb'))
+    pk.dump(lbl, open('/code/preprocessed/v1/label_encoder.sav','wb'))
 
     print (vgg_path)
     upper_lim = 1500 #Number of most frequently occurring answers in COCOVQA (85%+)
