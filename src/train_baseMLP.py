@@ -24,7 +24,7 @@ def main():
     vgg_features = scipy.io.loadmat(vgg_path)
     img_features = vgg_features['feats']
     id_map = dict()
-    nlp = spacy.load("en_core_web_md")
+    nlp = spacy.load("en")
     print ("Loaded WordVec")
     lbl = LabelEncoder()
     lbl.fit(answers_train)
@@ -43,7 +43,7 @@ def main():
     img_dim = 4096
     word2vec_dim = 300
     num_epochs = 100
-    log_interval = 10
+    log_interval = 25
 
     for ids in img_ids:
         id_split = ids.split()
@@ -60,6 +60,8 @@ def main():
     model.add(Activation('softmax'))
 
     model.compile(loss='categorical_crossentropy', optimizer='rmsprop')
+    model_dump = model.to_json()
+    open('/output/baseline_mlp'  + '.json', 'w').write(model_dump)
     #tensorboard = TensorBoard(log_dir='/output/Graph', histogram_freq=0, write_graph=True, write_images=True)
 
     for k in range(num_epochs):
