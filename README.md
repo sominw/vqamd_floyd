@@ -20,6 +20,10 @@ Click this button to open a Workspace on FloydHub that will train this model.
 
 Do remember to execute **`run_me_first_floyd.sh` inside a terminal everytime** you restart your workspace to install relevant dependencies. 
 
+<p align="center">
+  <img src="https://github.com/sominwadhwa/sominwadhwa.github.io/blob/master/assets/vqa/9.png?raw=true"/>
+</p>
+
 ---
 
 This post will first dig into the basic theory behind the Visual Question Answering task. Then, we’ll discuss and build two approaches to VQA: the “bag-of-words” and the “recurrent” model. Finally, we’ll provide a tutorial workflow for training your own models and setting up a REST API on FloydHub to start detecting objects in your own images.
