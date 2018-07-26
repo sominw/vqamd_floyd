@@ -8,7 +8,7 @@ We’re already seeing incredible applications of object detection in our daily 
 
 Before proceeding further, I would highly encourge you to quickly read the full VQA Post here. 
 
-### Try it now
+## Try it now on FloydHub
 
 <p align="center">
 <a href="https://floydhub.com/run">
