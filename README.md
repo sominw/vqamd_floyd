@@ -6,6 +6,8 @@
 
 We’re already seeing incredible applications of object detection in our daily lives. One such interesting application is Visual Question Answering. It is a new and upcoming problem in Computer Vision where the data consists of open-ended questions about images. In order to answer these questions, an effective system would need to have an understanding of  “[vision, language and common-sense](https://dac.cs.vt.edu/research-project/visual-question-answering-vqa/).”
 
+Before proceeding further, I would highly encourge you to quickly read the full VQA Post here. 
+
 ### Try it now
 
 
@@ -24,21 +26,21 @@ The project code is in Python (Keras + TensorFlow). You can view my experiments 
 Since I've already preprocessed the data & stored everything in a FloydHub [dataset](https://www.floydhub.com/sominw/datasets/vqa_data), here's what we're going to do - 
 
 - Checkout the preprocessed data from the VQA Dataset.
-- Build & train **two** `VQA` models.
+- Build & train **two** `VQA` models using Keras & Tensorflow.
 - Assess the models on the `VQA` validation sets.
 - Run the model to generate some really cool predictions. 
 ---
 
-## Pre-requisites
+## For Offline Execution
 
-The following are a couple of instructions that must be gone through in order to execute different (or all) sections of this project.
+The following are a couple of instructions that must be gone through in order to execute different (or all) sections of this project. You will need an **NVIDIA GPU** to train these models.
 
 1. Clone the project, replacing ``VQAMD`` with the name of the directory you are creating:
 
         $ git clone https://github.com/sominwadhwa/vqa_floyd.git VQAMD
         $ cd VQAMD
 
-2. Make sure you have ``python 3.4.x`` running on your local system. If you do, skip this step. In case you don't, head
+2. Make sure you have ``python 3.5.x`` running on your local system. If you do, skip this step. In case you don't, head
 head [here](https://www.python.org/downloads/).
 
 3. ``virtualenv`` is a tool used for creating isolated 'virtual' python environments. It is advisable to create one here as well (to avoid installing the pre-requisites into the system-root). Do the following within the project directory:
@@ -52,44 +54,11 @@ To deactivate later, once you're done with the project, just type ``deactivate``
 4. Install the pre-requisites from ``requirements.txt`` & run ``tests/init.py`` to check if all the required packages were correctly installed:
 
         $ pip install -r requirements.txt
-        $ python test/init.py
+        $ bash run_me_first_on_floyd.sh
 
-You should see an output - ``Imports successful. Good to go!``
+## Contributing to VQA
 
-## Directory Structure
-
-#### Top-Level Structure:
-
-    .
-    .
-    ├── data                     # Data used and/or generated
-    │   ├── preprocessed
-    ├── src                    # Source Files
-    │   ├── trainMLP.py
-    │   ├── utils.py
-    │   ├── requirements.txt
-    │   ├── evaluateMLP.py
-    ├── test                    # Testing modules (including those for random-control experiments)
-    │   ├── init.py              
-    ├── LICENSE
-    └── README.md
-    .
-    .
-
-
-#### Files' Description
-
-## Running Tests
-
-## Contributing to VQAMD
-
-We welcome contributions to our little project.
-
-### Issues
-
-Feel free to submit issues and enhancement requests.
-
-### Contributing
+I welcome contributions to this little project. If you have any new ideas or approaches that you'd like to incorporate here, feel free to open up an issue.
 
 Please refer to each project's style guidelines and guidelines for submitting patches and additions. In general, we follow the "fork-and-pull" Git workflow.
 
@@ -101,5 +70,6 @@ Please refer to each project's style guidelines and guidelines for submitting pa
 
 NOTE: Be sure to merge the latest from "upstream" before making a pull request!
 
+### Issues
 
-## Acknowledgements
+Feel free to submit issues and enhancement requests.
