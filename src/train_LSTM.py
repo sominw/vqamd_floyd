@@ -110,6 +110,6 @@ for k in range(num_epochs):
         progbar.add(batch_size, values=[('train loss', loss)])
     if k%log_interval == 0:
         model.save_weights("/output/LSTM" + "_epoch_{:02d}.hdf5".format(k))
-model.save_weights("/output/MLP" + "_epoch_{:02d}.hdf5".format(k))
+model.save_weights("/output/LSTM" + "_epoch_{:02d}.hdf5".format(k))
 
 
