@@ -2,7 +2,7 @@ env: tensorflow-1.8
 machine: cpu
 data:
   - source: sominw/datasets/vqa_data/2
-#    destination: input
+    destination: /
 
 # see: https://docs.floydhub.com/floyd_config
 # All supported configs:
