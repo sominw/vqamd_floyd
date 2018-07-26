@@ -33,7 +33,7 @@ Since I've already preprocessed the data & stored everything in a FloydHub [data
 
 ## For Offline Execution
 
-The following are a couple of instructions that must be gone through in order to execute different (or all) sections of this project. You will need an **NVIDIA GPU** to train these models.
+The following are a couple of instructions that must be gone through in order to execute different (or all) sections of this project. You will need a **NVIDIA GPU** to train these models.
 
 1. Clone the project, replacing ``VQAMD`` with the name of the directory you are creating:
 
