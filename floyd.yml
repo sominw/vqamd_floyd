@@ -1,5 +1,5 @@
 env: tensorflow-1.8
-machine: cpu
+machine: gpu
 data:
   - source: sominw/datasets/vqa_data/2
     destination: vqa_data
