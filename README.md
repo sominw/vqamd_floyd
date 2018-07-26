@@ -12,7 +12,7 @@ Before proceeding further, I would highly encourge you to quickly read the full 
 
 
 
-Click this button to open a Workspace on FloydHub that will train this model.
+Click this button to open a Workspace on FloydHub that will train this model. **Do remember to execute `run_me_first_floyd.sh` inside a terminal everytime you restart your workspace to install relevant dependencies**.
 
 ---
 
