@@ -1,5 +1,4 @@
 # Visual Question Answering through Modal Dialogue
----
 
 <p align="center">
   <img src="https://github.com/sominwadhwa/sominwadhwa.github.io/blob/master/assets/vqa/1.jpeg?raw=true"/>
