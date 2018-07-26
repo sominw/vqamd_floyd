@@ -10,7 +10,11 @@ Before proceeding further, I would highly encourge you to quickly read the full 
 
 ### Try it now
 
-
+<p align="center">
+<a href="https://floydhub.com/run">
+    <img src="https://static.floydhub.com/button/button.svg" alt="Run">
+</a>
+</p>
 
 Click this button to open a Workspace on FloydHub that will train this model. **Do remember to execute `run_me_first_floyd.sh` inside a terminal everytime you restart your workspace to install relevant dependencies**.
 
