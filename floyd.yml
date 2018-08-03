@@ -1,7 +1,7 @@
 env: tensorflow-1.8
 machine: gpu
 data:
-  - source: sominw/datasets/vqa_data/2
+  - source: sominw/datasets/vqa_data/3
     destination: vqa_data
 
 # see: https://docs.floydhub.com/floyd_config
