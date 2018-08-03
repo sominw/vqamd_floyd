@@ -1,4 +1,4 @@
-env: tensorflow-1.8
+env: tensorflow-1.9
 machine: gpu
 data:
   - source: sominw/datasets/vqa_data/3
