@@ -11,9 +11,9 @@ K.set_image_data_format('channels_first')
    
 # File paths for the model, all of these except the CNN Weights are 
 # provided in the repo, See the models/CNN/README.md to download VGG weights
-VQA_weights_file_name   = 'models/VQA/VQA_MODEL_WEIGHTS.hdf5'
-label_encoder_file_name = 'models/VQA/FULL_labelencoder_trainval.pkl'
-CNN_weights_file_name   = 'models/CNN/vgg16_weights.h5'
+VQA_weights_file_name   = '/floyd/input/vqa_data/models/VQA/VQA_MODEL_WEIGHTS.hdf5'
+label_encoder_file_name = '/floyd/input/vqa_data/models/VQA/FULL_labelencoder_trainval.pkl'
+CNN_weights_file_name   = '/floyd/input/vqa_data/models/CNN/vgg16_weights.h5'
 
 verbose = 1
 
