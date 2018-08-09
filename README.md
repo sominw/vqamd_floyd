@@ -39,6 +39,11 @@ Since I've already preprocessed the data & stored everything in a FloydHub [data
 - Build & train **two** `VQA` models using Keras & Tensorflow.
 - Assess the models on the `VQA` validation sets.
 - Run the model to generate some really cool predictions. 
+
+## Serving Models on FloydHub
+
+I've created a separate [repository here](https://github.com/sominwadhwa/vqamd_api) to serve models since it avoids the overhead of pushing the entire code/data in the training repo to Floyd over & over again. 
+
 ---
 
 ## For Offline Execution
