@@ -1,3 +1,5 @@
+# get floyd_requirement.txt from https://github.com/sominwadhwa/vqamd_api
+
 import os, argparse, warnings, io, gc
 import subprocess
 warnings.filterwarnings('ignore')
@@ -6,7 +8,7 @@ warnings.filterwarnings('ignore')
 
 import flask
 
-import cv2 
+import cv2
 import spacy
 import numpy as np
 import en_core_web_sm
@@ -62,7 +64,7 @@ def get_question_features(question):
 
 @app.route("/predict", methods=["POST"])
 def predict():
-	
+
 	data = {"success": False}
 
 	ques = flask.request.form['ques']
