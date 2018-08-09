@@ -1,0 +1,6 @@
+flask==0.12
+numpy
+keras==2.0.6
+spacy==1.9.0
+opencv-python
+https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-1.2.0/en_core_web_sm-1.2.0.tar.gz
