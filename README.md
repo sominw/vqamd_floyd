@@ -42,7 +42,7 @@ Since I've already preprocessed the data & stored everything in a FloydHub [data
 
 ## Serving Models on FloydHub
 
-I've created a separate [repository here](https://github.com/sominwadhwa/vqamd_api) to serve models since it avoids the overhead of pushing the entire code/data in the training repo to Floyd over & over again. 
+I've created a separate [repository here](https://github.com/sominwadhwa/vqamd_api) to serve models since it **avoids the overhead of pushing the entire code/data in the training repo to Floyd over & over again**. 
 
 ---
 
