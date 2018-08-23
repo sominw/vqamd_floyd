@@ -99,7 +99,7 @@ def predict():
 
 
 if __name__ == "__main__":
-	print(("* Loading Keras model and Flask starting server..."
+	print(("Loading Keras model and Flask starting server..."
 		"please wait until server has fully started"))
 	app.debug = True
 	app.run(host='0.0.0.0')
