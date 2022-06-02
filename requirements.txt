@@ -14,7 +14,7 @@ entrypoints==0.2.3
 ftfy==4.4.3
 gensim==2.3.0
 h5py==2.7.0
-html5lib==0.9999999
+html5lib==0.99999999
 idna==2.5
 ipykernel==4.6.1
 ipython-genutils==0.2.0
